@@ -4,6 +4,7 @@ import { Title } from '@angular/platform-browser';
 import { Book } from '../models/book';
 import { Reader } from '../models/reader';
 import { DataService } from '../core/data.service';
+import { BookTrackerError } from '../models/bookTrackerError';
 
 @Component({
   selector: 'app-dashboard',
@@ -23,7 +24,7 @@ export class DashboardComponent implements OnInit {
     this.dataService.getAllBooks()
     .subscribe(
       (books: Book[]) => this.allBooks = books,
-      (error: any) => console.log(error)
+      (error: BookTrackerError) => console.log(error.friendlyMessage)
     );
     this.allReaders = this.dataService.getAllReaders();
     this.mostPopularBook = this.dataService.mostPopularBook;
