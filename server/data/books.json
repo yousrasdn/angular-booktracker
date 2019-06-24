@@ -12,12 +12,6 @@
         "publicationYear": "1926"
     },
     {
-        "bookID": 4,
-        "title": "The Hobbit",
-        "author": "J. R. R. Tolkien",
-        "publicationYear": "1937"
-    },
-    {
         "bookID": 6,
         "title": "Alice's Adventures in Wonderland",
         "author": "Lewis Carroll",
