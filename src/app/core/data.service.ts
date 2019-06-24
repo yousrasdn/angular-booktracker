@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+import { Observable } from 'rxjs';
+
 import { allBooks, allReaders } from '../data';
 import { LoggerService } from './logger.service';
 import { Reader } from '../models/reader';
@@ -27,11 +29,12 @@ export class DataService {
     return allReaders.find(reader => reader.readerID === id);
   }
 
-  getAllBooks(): Book[] {
-    return allBooks;
+  getAllBooks(): Observable<Book[]> {
+    console.log('Getting all books from the server.');
+    return this.httpClient.get<Book[]>('/api/books');
   }
 
   getBookById(id: number): Book {
     return allBooks.find(book => book.bookID === id);
-  }  
+  }
 }
