@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 
 import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 import { allBooks, allReaders } from '../data';
 import { LoggerService } from './logger.service';
 import { Reader } from '../models/reader';
 import { Book } from '../models/book';
-import { catchError } from 'rxjs/operators';
 import { BookTrackerError } from '../models/bookTrackerError';
 
 @Injectable()
