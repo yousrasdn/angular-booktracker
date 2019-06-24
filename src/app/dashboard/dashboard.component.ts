@@ -32,7 +32,13 @@ export class DashboardComponent implements OnInit {
   }
 
   deleteBook(bookID: number): void {
-    console.warn(`Delete book not yet implemented (bookID: ${bookID}).`);
+    this.dataService.deleteBook(bookID)
+    .subscribe(
+      (data: void) => {
+        let index = this.allBooks.findIndex(book => book.bookID === bookID);
+        this.allBooks.splice(index, 1);
+      }, (error: any) => console.log(error)
+    );
   }
 
   deleteReader(readerID: number): void {
