@@ -24,4 +24,8 @@ export class HttpCacheService {
   invalidateCache(): void {
     this.requests = {};
   }
+
+  getRequests(): any {
+    return this.requests;
+  }
 }
